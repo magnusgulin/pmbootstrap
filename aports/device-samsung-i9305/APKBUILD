@@ -1,0 +1,27 @@
+pkgname=device-samsung-i9305
+pkgver=1
+pkgrel=2
+pkgdesc="Samsung Galaxy SIII (LTE / International)"
+url="https://github.com/postmarketOS"
+arch="noarch"
+license="MIT"
+depends="linux-samsung-i9305"
+makedepends=""
+install=""
+subpackages=""
+source="deviceinfo 90-android.rules"
+options="!check"
+
+build() {
+	return 0
+}
+
+package() {
+	install -D -m644 "$srcdir/deviceinfo" \
+		"$pkgdir/etc/deviceinfo"
+	install -D -m644 "$srcdir"/90-android.rules \
+		"$pkgdir"/etc/udev/rules.d/90-android.rules
+}
+
+sha512sums="c2afde0d3578e84a02939be8d184543f11513332e8820053f6fe5a97d90f8e034970bc9352459f1fe613362709874b40a9c3b3bb58af77f90705e4575c1d65da  deviceinfo
+8d7c97d1193058a9f4f6c84e44e4690daf25c0bf27d2a60b26ccb443b9f105d50c2a6e657262e18f9c7f2ccaa4c1c79b247c5ad2f865051693e948a24776bb69  90-android.rules"
